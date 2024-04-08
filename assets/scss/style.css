@@ -1,1 +1,84 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.TheFirstNavbar {
+  background-color: rgb(15, 52, 96);
+  color: #fff;
+  height: 40px;
+  font-size: 12px;
+}
+.TheFirstNavbar .EmailIcon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.TheFirstNavbar .Extra {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.TheFirstNavbar .Extra:hover {
+  color: rgb(233, 69, 96);
+}
+.TheFirstNavbar .compenents2 img {
+  height: 14px;
+  border-radius: 4px;
+}
+.TheFirstNavbar .compenents2 .En {
+  font-weight: 600;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.content, .contentUsd {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 6px;
+  top: calc(100% + 10px);
+  right: 92px;
+}
+
+.content, .contentUsd {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  max-width: 100%;
+}
+.content .contentItems, .contentUsd .contentItems {
+  display: flex;
+  padding: 6px;
+}
+.content .contentItems .DropDownImage, .contentUsd .contentItems .DropDownImage {
+  height: 18px;
+  border-radius: 0;
+}
+.content .contentItems img, .contentUsd .contentItems img {
+  margin-right: 0.5rem;
+}
+.content .contentItems:hover, .contentUsd .contentItems:hover {
+  color: rgb(233, 69, 96);
+  background-color: rgb(246, 249, 252);
+}
+
+.After {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .After {
+    display: block;
+  }
+  .TheNavbarUL {
+    display: none;
+  }
+  .Extra {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */

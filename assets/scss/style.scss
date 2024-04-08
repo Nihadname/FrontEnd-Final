@@ -1,0 +1,86 @@
+@import "./colors";
+@import "./SizesAndFont.scss";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $mainFont;
+}
+.TheFirstNavbar{
+    background-color: $blue-color;
+    color: $white-color;
+    height: 40px;
+    font-size: 12px;
+    .EmailIcon{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .Extra{
+        margin-left:20px;
+        margin-right: 20px;
+    }
+    .Extra:hover{
+    color: $red-color;
+    }
+    .compenents2{
+        img{
+            height: 14px;
+            border-radius: 4px;
+        }
+        .En{
+            font-weight: 600;
+            margin-left: 3px;
+            margin-right: 3px;
+        }
+    }
+}
+.content,.contentUsd {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 6px;
+    top: calc(100% + 10px); 
+    right: 92px;
+}
+ .content ,.contentUsd {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    max-width: 100%;
+    .contentItems{
+        display: flex;
+        padding: 6px;
+        .DropDownImage{
+            height: 18px;
+            border-radius: 0;
+        }
+        img{
+            margin-right: 0.5rem;
+        }
+    }
+    .contentItems:hover{
+        color: rgb(233, 69, 96);
+        background-color: rgb(246, 249, 252);
+    }
+}
+.After{
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .After {
+      display: block;
+    }
+  
+    .TheNavbarUL {
+      display: none;
+    }
+  
+    .Extra {
+      display: none;
+    }
+  }
+  
