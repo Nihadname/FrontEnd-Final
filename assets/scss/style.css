@@ -67,13 +67,15 @@
   background-color: rgb(246, 249, 252);
 }
 
-.After {
+.all {
   display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .After {
-    display: block;
+  .all {
+    display: flex;
+    align-items: center;
+    margin-top: -6px;
   }
   .TheNavbarUL {
     display: none;
@@ -81,4 +83,11 @@
   .Extra {
     display: none;
   }
+}
+.second {
+  margin-left: 91px;
+}
+
+.first img {
+  height: 36px;
 }/*# sourceMappingURL=style.css.map */
