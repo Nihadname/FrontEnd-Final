@@ -71,6 +71,10 @@
   display: none;
 }
 
+.navbarCom {
+  display: none;
+}
+
 .nav-link {
   color: #fff;
 }
@@ -78,5 +82,13 @@
 @media screen and (max-width: 1024px) {
   .all {
     display: block;
+    margin-top: -14px;
+  }
+  .navbarCom {
+    display: flex;
+    align-items: center;
+  }
+  .compenents2 {
+    margin-top: -14px;
   }
 }/*# sourceMappingURL=style.css.map */
