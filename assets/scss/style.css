@@ -105,6 +105,10 @@ nav {
   box-shadow: rgba(255, 225, 230, 0.1) 1px 1px 8px 4px;
 }
 
+.nav-link:hover {
+  color: rgb(233, 69, 96);
+}
+
 .searchInput {
   padding-left: 3rem;
   padding-right: 11.5rem; /* Adjust this value as needed */
@@ -196,4 +200,65 @@ nav {
   .icons {
     display: none;
   }
+  #lastNav {
+    display: none;
+  }
+  .content2 {
+    display: none;
+  }
+  .searchInput {
+    width: 100%;
+  }
+  .categories {
+    display: none;
+  }
+}
+.CategoriesPart button {
+  color: rgb(125, 135, 156);
+  width: 265px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  border-radius: 14px;
+  background-color: rgb(246, 249, 252);
+  border: 1px solid white;
+}
+
+.UpDown {
+  margin-left: 95px;
+  font-size: 13px;
+}
+
+.alltitles {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.content2 {
+  display: block;
+  background-color: #fff;
+  min-width: 167px;
+  width: 62%;
+  box-shadow: 5px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 6px;
+  top: calc(100% - 562px);
+  /* right: 35px; */
+  left: 118px;
+  padding: 14px;
+  text-decoration: none;
+}
+.content2 .contentItems {
+  margin-bottom: 12px;
+}
+.content2 .En {
+  padding-left: 0.75rem;
+}
+
+#mainPage {
+  background-color: rgb(255, 255, 255);
 }/*# sourceMappingURL=style.css.map */

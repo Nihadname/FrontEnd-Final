@@ -11,4 +11,13 @@ $(document).ready(function(){
     $(".SearchDropDown").click(function(){
         $(".content1").toggle();
     })
+    window.addEventListener("resize",function(){
+    const content2=$(".content2");
+   // console.log(content2);
+   let width=window.innerWidth;
+   if(width<=1024){
+    content2.addClass("d-none")
+   }
+    })
 });
+
