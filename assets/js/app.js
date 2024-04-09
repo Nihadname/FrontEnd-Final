@@ -19,5 +19,26 @@ $(document).ready(function(){
     content2.addClass("d-none")
    }
     })
+    $(document).ready(function(){
+        var currentItemIndex = 0;
+        var items = $('.carousel .item');
+    
+        // Function to show the current item and hide others
+        function showItem(index) {
+            items.removeClass('active');
+            items.eq(index).addClass('active');
+        }
+    
+        // Show the first item initially
+        showItem(currentItemIndex);
+    
+        // Automatically switch slides every 3 seconds
+        setInterval(function () {
+            currentItemIndex = (currentItemIndex + 1) % items.length;
+            showItem(currentItemIndex);
+        }, 3000);
+    });
+    
 });
+
 
