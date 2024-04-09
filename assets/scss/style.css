@@ -170,4 +170,30 @@ nav {
 }
 .content1 .contentItems span {
   font-size: 16px;
+}
+
+.fa-user {
+  background-color: rgb(243, 245, 249);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.fa-bag-shopping {
+  background-color: rgb(243, 245, 249);
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .TheMainLogo {
+    display: none;
+  }
+  .icons {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -164,3 +164,26 @@ nav{
     color: #333;
     max-width: 100%;
 }
+.fa-user{
+  background-color: rgb(243, 245, 249);
+  padding: 15px;
+  border-radius: 50%;
+}
+.fa-bag-shopping{
+  background-color: rgb(243, 245, 249);
+  padding: 15px;
+  border-radius: 50%;
+}
+.icons{
+  display: flex;
+  justify-content: center;
+}
+@media screen  and (max-width:1024px){
+  .TheMainLogo{
+    display: none;
+    }
+    .icons{
+      display: none;
+    }
+  
+}
