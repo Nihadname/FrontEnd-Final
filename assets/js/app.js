@@ -8,4 +8,7 @@ $(document).ready(function(){
             $(".contentUsd").hide();
         }
     });
+    $(".SearchDropDown").click(function(){
+        $(".content1").toggle();
+    })
 });
