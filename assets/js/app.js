@@ -38,7 +38,12 @@ $(document).ready(function(){
             showItem(currentItemIndex);
         }, 3000);
     });
-    
+    $(".owl-carousel").owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        items: 5 // You can adjust the number of items displayed here
+      });    
 });
 
 

@@ -6,16 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <link
         href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css"
         rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <link rel="stylesheet" href="./assets/scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
@@ -220,7 +230,7 @@
     <main>
         <section id="mainPage">
             <div class="container">
-                <div class="row">
+                <div class="row justify-content-center ">
                     <div class="col-lg-4">
                         <div class="content2">
                             <!-- Content for EN -->
@@ -1483,30 +1493,75 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
-                        <div class="row  align-items-center ">
-                            <div class="col-lg-9">
-                                <div class="informarion">
-                                    <h1 class="title">50% Off For Your First Shopping</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat eu, quam etiam at quis ut convalliss.</p>
-                                    <button>Shop Now</button>
+                        <div id="carouselExampleIndicators" class="carousel slide">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active bg-dark " aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-9">
+                                        <div class="informarion">
+                                            <h1 class="title">50% Off For Your First Shopping</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat
+                                                eu, quam etiam at quis ut convalliss.</p>
+                                            <button>Shop Now</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="imgKeep d-flex justify-content-center">
+                                            <img src="./assets/img/apple-watch-0.png" alt="">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                              <div class="imgKeep d-flex justify-content-center ">
-                                <img src="./assets/img/apple-watch-0.png" alt="">
                               </div>
+                              <div class="carousel-item">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-9">
+                                        <div class="informarion">
+                                            <h1 class="title">50% Off For Your First Shopping</h1>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat
+                                                eu, quam etiam at quis ut convalliss.</p>
+                                            <button>Shop Now</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="imgKeep d-flex justify-content-center">
+                                            <img src="./assets/img/apple-watch-0.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>                              </div>
                             </div>
-                        </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" style="color: black ;" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
                     </div>
                 </div>
+                <div class="icons d-flex justify-content-center gap-2 ">
+                    <i class="fa-light fa-circle-small" onclick="prevSlide()"></i>
+                    <i class="fa-light fa-circle-small" onclick="nextSlide()"></i>
+                </div>
+            </div>
             </div>
         </section>
+
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="./assets/js/app.js"></script>
+
 </body>
 
 </html>

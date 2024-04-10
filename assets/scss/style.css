@@ -212,6 +212,9 @@ nav {
   .categories {
     display: none;
   }
+  .content2 {
+    display: none;
+  }
 }
 .CategoriesPart button {
   color: rgb(125, 135, 156);
@@ -367,4 +370,18 @@ h6 {
 
 .item.active {
   display: block;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.active {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
