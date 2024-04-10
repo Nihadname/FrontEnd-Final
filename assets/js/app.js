@@ -44,6 +44,7 @@ $(document).ready(function(){
         nav:true,
         items: 5 // You can adjust the number of items displayed here
       });    
+      
 });
 
 

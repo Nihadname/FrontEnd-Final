@@ -304,7 +304,6 @@ h6{
   background-color: #fff;
   min-width: 167px;
   width: 23%;
-  box-shadow: 5px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 6px;
   position: absolute;
@@ -346,7 +345,8 @@ h6{
 .item {
   display: none;
 }
-
+header{
+}
 .item.active {
   display: block;
 }
@@ -360,4 +360,79 @@ h6{
 }
 .active {
   display: none;
+}
+#products{
+background: rgb(246, 249, 252);
+h2{
+  font-weight: bold;
+  font-size: 25px;
+}
+}
+.mycard{
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 282px;
+  .iconsDesigned{
+    border-radius: 300px;
+    transition: all 150ms ease-in-out 0s;
+    cursor: unset;
+    box-shadow: unset;
+    padding: 5px 10px;
+    background-color: rgb(233, 69, 96);
+    color: rgb(255, 255, 255);
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    z-index: 1;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .extraDesign{
+    padding: 1rem;
+  }
+  .titleOfTheDeisgn{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .theActualPrice{
+    padding-right: 0.5rem;
+    color: rgb(233, 69, 96);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .prevoiusPrice{
+    color: rgb(125, 135, 156);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .allDesign{
+    display: flex;
+    align-items: center;
+  }
+  .addingIcon svg:hover{
+    border: 1px solid  rgb(233, 69, 96);
+    border-color: rgb(233, 69, 96);
+    fill:rgb(255, 255, 255) ;
+    background-color:rgb(233, 69, 96) ;
+    font-size: 1rem;
+    border-radius: 3px;
+    stroke: rgb(255, 255, 255);
+  }
+  .addingIcon svg{
+    font-weight: 600;
+    font-size: 1rem;
+
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(233, 69, 96) ;
+    border-radius: 4px;
+  }
+  .addingIcon{
+    margin-left: 112px;
+
+  }
+  .IconAdd{
+    fill: red;
+  }
 }
