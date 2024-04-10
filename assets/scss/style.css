@@ -458,4 +458,38 @@ h6 {
 }
 .mycard .IconAdd {
   fill: red;
+}
+
+.slider1 {
+  position: relative;
+}
+
+.slider1 .priv_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 161px;
+  left: -15px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
+}
+
+.slider1 .next_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 161px;
+  right: 15px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
 }/*# sourceMappingURL=style.css.map */
