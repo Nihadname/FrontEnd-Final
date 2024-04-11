@@ -19,9 +19,10 @@ $(document).ready(function(){
     content2.addClass("d-none")
    }
     })
-  $(".fa-user").addEventListener("click",function(){
-    
-  })
+ 
+    $(".fa-user").click(function() {
+    $('#signup-modal').modal('show');
+  });
   
       
 });
