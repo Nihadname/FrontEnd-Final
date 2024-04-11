@@ -495,6 +495,36 @@ h6 {
   padding: 0.75rem;
 }
 
+.slider3 .priv_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 56px;
+  left: -15px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
+}
+
+.slider3 .next_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 56px;
+  right: 15px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
+}
+
 .modal-header {
   border-bottom: none;
 }
@@ -596,4 +626,29 @@ small {
 
 .slider1 {
   margin-bottom: 5rem;
+}
+
+.mySliderPage {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 8px;
+  width: 384px;
+  position: relative;
+}
+
+.iconOne {
+  display: inline-flex;
+  border-radius: 300px;
+  cursor: unset;
+  box-shadow: unset;
+  padding: 4px 10px;
+  color: white;
+  background-color: rgb(15, 52, 96);
+  z-index: 2;
+  top: 1.5rem;
+  left: 1.5rem;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */
