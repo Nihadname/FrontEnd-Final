@@ -1263,17 +1263,18 @@
 
 
                     <div class="row align-items-center">
-                                    <div class="col-lg-9">
-                                        <div class="informarion">
-                                            <h1 class="title">50% Off For Your First Shopping</h1>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis lobortis consequat
-                                                eu, quam etiam at quis ut convalliss.</p>
-                                            <button>Shop Now</button>
+                                        <div class="col-lg-9">
+                                            <div class="informarion">
+                                                <h1 class="title">50% Off For Your First Shopping</h1>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
+                                                    lobortis consequat
+                                                    eu, quam etiam at quis ut convalliss.</p>
+                                                <button>Shop Now</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="imgKeep d-flex justify-content-center">
+                                                <img src="./assets/img/apple-watch-0.png" alt="">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        <div class="imgKeep d-flex justify-content-center">
-                                            <img src="./assets/img/apple-watch-0.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
