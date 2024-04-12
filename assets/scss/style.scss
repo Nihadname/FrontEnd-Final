@@ -632,6 +632,7 @@ small{
     font-weight: 600;
     font-size: 14px;
     text-align: center;
+    margin-bottom: 0.5rem;
 }
 .priceSmall{
   margin-bottom: 0px;
@@ -653,4 +654,10 @@ small{
   padding: 1rem;
   border-radius: 8px;
   width: 1192px;
+}
+.itemProduct img{
+  margin-bottom: 1rem;
+}
+#ProductsShowing{
+  background: rgb(246, 249, 252);
 }
