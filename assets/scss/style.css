@@ -87,6 +87,9 @@
     display: flex;
     align-items: center;
   }
+  .newDesignForProducts {
+    flex-wrap: wrap;
+  }
   .compenents2 {
     margin-top: -14px;
   }
@@ -415,6 +418,9 @@ h6 {
   font-size: 10px;
   font-weight: 600;
 }
+.mycard .addingIcon {
+  margin-left: 147px;
+}
 .mycard .extraDesign {
   padding: 1rem;
 }
@@ -455,7 +461,7 @@ h6 {
   border-radius: 4px;
 }
 .mycard .addingIcon {
-  margin-left: 112px;
+  margin-left: 147px;
 }
 .mycard .IconAdd {
   fill: red;
@@ -525,6 +531,40 @@ h6 {
   padding: 0.75rem;
 }
 
+.slider4 {
+  position: relative;
+}
+
+.slider4 .next_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 86px;
+  right: 3px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
+}
+
+.slider4 .priv_arrow {
+  position: absolute;
+  background-color: rgb(15, 52, 96);
+  color: rgb(125, 135, 156);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px;
+  border-radius: 50%;
+  top: 86px;
+  left: -3px;
+  border: none;
+  line-height: 19px;
+  text-align: center;
+  z-index: 999999999999;
+  padding: 0.75rem;
+}
+
 .modal-header {
   border-bottom: none;
 }
@@ -544,6 +584,10 @@ small {
   font-size: 12px;
   text-align: center;
   margin-bottom: 17px;
+}
+
+.allHere {
+  padding: 4rem;
 }
 
 .EmailSignUp {
@@ -661,6 +705,10 @@ small {
   width: 572px;
 }
 
+.mycard {
+  position: relative;
+}
+
 .camera {
   white-space: nowrap;
   overflow: hidden;
@@ -694,7 +742,7 @@ small {
   background-color: rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 8px;
-  width: 1192px;
+  width: 1242px;
 }
 
 .itemProduct img {
@@ -703,4 +751,108 @@ small {
 
 #ProductsShowing {
   background: rgb(246, 249, 252);
+}
+
+.mycard2 {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 8px;
+  width: 180px;
+}
+
+.mycard2 img {
+  width: 148px;
+  border-radius: 12px;
+  height: 148px;
+}
+
+.mycard2 img:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.oldPrice {
+  color: rgb(125, 135, 156);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.IdicatorCard {
+  cursor: unset;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px -1px, rgba(0, 0, 0, 0.043) 0px 5px 8px 0px, rgba(0, 0, 0, 0.035) 0px 1px 14px 0px;
+  border-radius: 10px;
+  padding: 1.25rem;
+  background-color: white;
+}
+
+.itemsInIt {
+  display: flex;
+  cursor: pointer;
+  min-width: 240px;
+  border-radius: 5px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: rgb(246, 249, 252);
+  margin-bottom: 0.75rem;
+}
+
+.carName {
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 1rem;
+  text-transform: capitalize;
+}
+
+.cars {
+  margin-bottom: 1.3rem;
+  margin-top: 0px;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.carCard {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  position: relative;
+}
+
+.cardIcon {
+  display: inline-flex;
+  border-radius: 300px;
+  transition: all 150ms ease-in-out 0s;
+  cursor: unset;
+  box-shadow: unset;
+  padding: 5px 10px;
+  background-color: rgb(233, 69, 96);
+  color: rgb(255, 255, 255);
+  top: 10px;
+  left: 10px;
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.titleCar {
+  padding: 0.5rem 1rem;
+  color: rgb(43, 52, 69);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.line {
+  padding-top: 0.5rem;
+  color: rgb(218, 225, 231);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.anotherShop {
+  padding: 0.5rem 1rem;
+  color: rgb(125, 135, 156);
+  font-size: 20px;
+  font-weight: 600;
 }/*# sourceMappingURL=style.css.map */
