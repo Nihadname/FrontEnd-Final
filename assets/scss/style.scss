@@ -798,3 +798,9 @@ small{
   font-size: 20px;
   font-weight: 600;
 }
+.mycard{
+  transition: all .2s ease-in-out;
+}
+.mycard:hover{
+  transform: scale(1.1);
+}
