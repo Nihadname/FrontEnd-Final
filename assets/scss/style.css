@@ -863,4 +863,24 @@ small {
 
 .mycard:hover {
   transform: scale(1.1);
+}
+
+.itemProductExtra {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 0.75rem;
+  display: flex;
+  border-radius: 8px;
+}
+
+.writingProduct {
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.wiew {
+  float: right;
+  color: rgb(125, 135, 156);
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */
