@@ -821,3 +821,53 @@ float: right;  color: rgb(125, 135, 156);
   font-size: 14px;
 
 }
+.CardWarning{
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+}
+.iconsForCard{
+  display: flex;
+    flex-direction: row;
+    background-color: rgb(243, 245, 249);
+    width: 64px;
+    height: 64px;
+    border-radius: 300px;
+    align-items: center;
+    justify-content: center;
+}
+.warning{
+  margin-bottom: 4.3rem;
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+}
+.iconsForCard svg{
+    font-size: 25px;
+}
+
+footer{
+  background-color: rgb(15, 52, 96)  ;
+}
+.FooterIcon,.footerIcon2{
+  cursor: pointer;
+    box-shadow: none;
+    margin: 0.5rem;
+    color: white;
+    padding: 10px 16px;
+    display: flex;
+    background-color: rgb(12, 42, 77);
+    border-radius: 5px;
+    align-items: center;
+}
+.MainTitle{
+  font-size: 14px;
+  font-weight: 900;
+}
+.secondlyTitle{
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  margin-left: 10px;
+}
