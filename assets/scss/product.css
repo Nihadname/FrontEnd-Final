@@ -96,4 +96,22 @@
   background-color: rgb(243, 245, 249);
   margin-top: 18px;
   margin-bottom: 24px;
+}
+.allSideBar .priceChanger {
+  padding: 8px 12px;
+  height: 40px;
+  font-size: inherit;
+  color: rgb(43, 52, 69);
+  border-radius: 5px;
+  border: 1px solid rgb(218, 225, 231);
+  width: 50%;
+}
+.allSideBar li {
+  font-size: 14px;
+  margin-bottom: 0.8rem;
+}
+.allSideBar .colors div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }/*# sourceMappingURL=product.css.map */
