@@ -6,4 +6,21 @@
 
 .hiddenClass {
   display: none;
+}
+
+.allProductsBar {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 55px;
+}
+
+.h5 {
+  margin-bottom: 0;
+  font-weight: 600;
+  font-size: 16px;
 }/*# sourceMappingURL=product.css.map */

@@ -207,6 +207,26 @@ nav{
   .content2{
     display: none;
   }
+  .this{
+    display: none;
+  }
+  .respon{
+    display: flex;
+    justify-content:center ;
+  }
+  .wiew{
+    display: none;
+  }
+  .size{
+    width: 0;
+  }
+  .imgKeep{
+    justify-content: center!important;
+  }
+  .carAdd{
+    display: flex;
+    justify-content: center;
+  }
 }
 .CategoriesPart button{
   color: rgb(125, 135, 156);
@@ -870,4 +890,16 @@ footer{
   font-weight: 600;
   line-height: 1;
   margin-left: 10px;
+}
+.valueindicator{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(233, 69, 96);
+  height: 20px;
+  font-size: 10px;
+  min-width: 20px;
+  border-radius: 50%;
+  align-items: center;
+  color: white;
+  justify-content: center;
 }

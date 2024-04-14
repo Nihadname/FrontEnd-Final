@@ -136,10 +136,52 @@ $('.fa-bag-shopping').click(function() {
     $('#basketModal').modal('show');
   });
 });
+let Basketcount = document.querySelector(".valueBasket");
 
+let allAddingBasketButtons = document.querySelectorAll(".addingIcon");
+allAddingBasketButtons.forEach(button => {
+    button.addEventListener("click", function(event) {
+        let productsArr = [];
+        let productId = this.closest(".mycard").getAttribute("data-id");
+        if (localStorage.getItem("basket") === null) {
+            localStorage.setItem("basket", JSON.stringify([]));
+        } else {
+            productsArr = JSON.parse(localStorage.getItem("basket"));
+        }
+        let existProduct = productsArr.find(p => p.id == productId);
+        if (existProduct) {
+            existProduct.count++;
+        } else {
+            let productNameElement = this.parentElement.closest('.mycard').querySelector(".titleOfTheDeisgn").innerText.trim();
+                        let product = {
+                id: productId,
+                name: productNameElement,
+                count: 1
+            };
+            productsArr.push(product);
+        }
+        localStorage.setItem("basket", JSON.stringify(productsArr));
+    });
+    calculationBasketCount();
+});
+function calculationBasketCount() {
+    let basket = localStorage.getItem("basket");
+    let length;
+    if (basket) {
+        length = JSON.parse(basket).length;
+        Basketcount.innerText = length;
+    }
+};
+calculationBasketCount()
 
-let allAddingBasketButtons=document.querySelectorAll(".addingIcon")
-allAddingBasketButtons.forEach(button,function(event){
-    let productsArr = [];
-
+function getBasket(){
+    let basket=localStorage.getItem("basket");
+    let products=[];
+    if(basket){
+        products=JSON.parse(basket);
+    }
+    return products;
+}
+getBasket().forEach(products=>{
+    
 })
