@@ -60,4 +60,40 @@
   border-radius: 6px;
   bottom: calc(100% - 403px);
   right: 110px;
+}
+
+.allSideBar {
+  box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+  background-color: rgb(255, 255, 255);
+  padding: 18px 27px;
+  border-radius: 8px;
+}
+.allSideBar h6 {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.allSideBar .something {
+  color: rgb(125, 135, 156);
+  font-size: 14px;
+}
+.allSideBar p {
+  color: rgb(125, 135, 156);
+  font-size: 14px;
+}
+.allSideBar .dropDownOFBar p {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 22px;
+  color: rgb(125, 135, 156);
+  font-size: 14px;
+}
+.allSideBar .border {
+  height: 1px;
+  background-color: rgb(243, 245, 249);
+  margin-top: 18px;
+  margin-bottom: 24px;
 }/*# sourceMappingURL=product.css.map */

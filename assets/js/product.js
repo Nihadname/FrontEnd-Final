@@ -6,6 +6,9 @@ $(document).ready(function(){
     $(".div2").click(function(){
         $(".content4").toggle();
     });
+    $(".iconBar").click(function(){
+        $(".dropDownOFBar").toggle();
+    })
 });
 
 function GettingDataFromApi() {
@@ -14,7 +17,6 @@ function GettingDataFromApi() {
     fetch('https://dummyjson.com/products')
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             for (let index = 0; index < 100 && index < data.products.length; index++) {
                 const product = data.products[index];
                 productsInThis.innerHTML += `
@@ -145,3 +147,51 @@ function GettingDataFromApi() {
 
 GettingDataFromApi();
 
+let input=document.querySelector(".searchInput")
+input.addEventListener("keyup",function(){
+    let value=this.value.toLowerCase();
+    let products = document.querySelectorAll('.mycard'); // Select all product cards
+products.forEach(item=>{
+    let title = item.querySelector('.titleOfTheDeisgn').textContent.toLowerCase();
+        if (title.includes(value)) {
+          //  let productsInThis = document.querySelector(".productsInThis");
+            item.style.display = 'block'; 
+        } else {
+            item.style.display = 'none'; // Hide the product card if it doesn't match the search
+        }
+})
+})
+function HighToLow(){
+    let clcikedOne=document.querySelector(".content4 .priceHigh span")
+    clcikedOne.addEventListener("click",function(){
+        let products = document.querySelectorAll('.mycard');
+        let sortedProducts = Array.from(products).sort((a, b) => {
+            let priceA = parseFloat(a.querySelector('.theActualPrice').textContent.slice(1));
+            let priceB = parseFloat(b.querySelector('.theActualPrice').textContent.slice(1));
+            return priceB - priceA; 
+        });
+        let productsInThis = document.querySelector(".productsInThis");
+        productsInThis.innerHTML = ''; 
+        sortedProducts.forEach(product => {
+            productsInThis.appendChild(product); 
+        });
+    })
+}
+HighToLow()
+function lowToHigh(){
+    let clcikedOne2=document.querySelector(".content4 .priceLow span")
+    clcikedOne2.addEventListener("click",function(){
+        let products = document.querySelectorAll('.mycard');
+        let sortedProducts = Array.from(products).sort((a, b) => {
+            let priceA = parseFloat(a.querySelector('.theActualPrice').textContent.slice(1));
+            let priceB = parseFloat(b.querySelector('.theActualPrice').textContent.slice(1));
+            return priceA - priceB; 
+        });
+        let productsInThis = document.querySelector(".productsInThis");
+        productsInThis.innerHTML = ''; 
+        sortedProducts.forEach(product => {
+            productsInThis.appendChild(product); 
+        });
+    })
+}
+lowToHigh()

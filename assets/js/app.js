@@ -161,19 +161,24 @@ allAddingBasketButtons.forEach(button => {
             productsArr.push(product);
         }
         localStorage.setItem("basket", JSON.stringify(productsArr));
+        calculationBasketCount();
     });
     calculationBasketCount();
 });
-
 function calculationBasketCount() {
     let Basketcount = document.querySelector(".valueindicator .valueBasket");
-    let basket = localStorage.getItem("basket");
-    let length;
-    if (basket) {
-        length = JSON.parse(basket).length;
-        Basketcount.innerText = length;
+    if (Basketcount) {
+        let basket = localStorage.getItem("basket");
+        let length;
+        if (basket) {
+            length = JSON.parse(basket).length;
+            Basketcount.innerText = length;
+        }
+    } else {
+        console.error("Basketcount element not found.");
     }
-};
+}
+
 calculationBasketCount()
 
 function getBasket(){
