@@ -136,7 +136,6 @@ $('.fa-bag-shopping').click(function() {
     $('#basketModal').modal('show');
   });
 });
-let Basketcount = document.querySelector(".valueBasket");
 
 let allAddingBasketButtons = document.querySelectorAll(".addingIcon");
 allAddingBasketButtons.forEach(button => {
@@ -156,6 +155,7 @@ allAddingBasketButtons.forEach(button => {
                         let product = {
                 id: productId,
                 name: productNameElement,
+                img:this.parentElement.closest(".mycard").querySelector("img").src,
                 count: 1
             };
             productsArr.push(product);
@@ -164,7 +164,9 @@ allAddingBasketButtons.forEach(button => {
     });
     calculationBasketCount();
 });
+
 function calculationBasketCount() {
+    let Basketcount = document.querySelector(".valueindicator .valueBasket");
     let basket = localStorage.getItem("basket");
     let length;
     if (basket) {
@@ -183,5 +185,5 @@ function getBasket(){
     return products;
 }
 getBasket().forEach(products=>{
-    
+
 })
