@@ -31,3 +31,25 @@
     margin-top: 30px;
 
 }
+.imageWithSmall{
+    box-shadow: none;
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    min-width: 70px;
+    display: flex;
+    border: 1px solid rgb(233, 69, 96);
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 10px;
+}
+.thisTObe{
+    margin-right: auto;
+    justify-content: center;
+}
+.wholeDiv{
+
+    border-bottom: 3px solid rgb(218, 225, 231);
+}
