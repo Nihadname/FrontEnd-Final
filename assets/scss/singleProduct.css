@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.designToH1 {
+  margin-bottom: 1rem;
+  margin-top: 0px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.buttonHere {
+  display: flex;
+  width: unset;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  padding: 11px 1.5rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: rgb(233, 69, 96);
+  transition: all 150ms ease-in-out 0s;
+  line-height: 1;
+  border: none;
+  color: rgb(255, 255, 255);
+  height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 36px;
+  margin-top: 30px;
+}/*# sourceMappingURL=singleProduct.css.map */

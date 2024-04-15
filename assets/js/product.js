@@ -12,6 +12,7 @@ $(document).ready(function () {
 })
 $('.fa-bag-shopping').click(function () {
     $('#basketModal').modal('show');
+    
 });
 function calculationBasketCount() {
     let Basketcount = document.querySelector(".valueindicator .valueBasket");
@@ -351,7 +352,7 @@ input.addEventListener("keyup", function () {
 })
 function HighToLow() {
     let clcikedOne = document.querySelector(".content4 .priceHigh span")
-    clcikedOne.addEventListener("click", function () {
+    clcikedOne.addEventListener("click", function(){
         let products = document.querySelectorAll('.mycard');
         let sortedProducts = Array.from(products).sort((a, b) => {
             let priceA = parseFloat(a.querySelector('.theActualPrice').textContent.slice(1));
@@ -569,6 +570,7 @@ function getDataFromApiSecond() {
                 return products;
             }
             getBasket().forEach(products => {
+                
                 let tr = document.createElement("tr");
                 let tdImage = document.createElement("td");
                 let img = document.createElement("img");
@@ -690,6 +692,8 @@ getDataFromApiSecond();
 
 // Add event listeners to the dynamically created "Add to Basket" buttons
 
-
-
-
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('mycard')) {
+        window.location.href = "singleProduct.html";
+    }
+});
