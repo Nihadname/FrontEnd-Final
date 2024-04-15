@@ -9,8 +9,26 @@ $(document).ready(function(){
     $(".iconBar").click(function(){
         $(".dropDownOFBar").toggle();
     })
+})
+$('.fa-bag-shopping').click(function () {
+    $('#basketModal').modal('show');
 });
+function calculationBasketCount() {
+    let Basketcount = document.querySelector(".valueindicator .valueBasket");
+    if (Basketcount) {
+        let basket = localStorage.getItem("basket1");
+        let length;
+        if (basket) {
+            length = JSON.parse(basket).length;
+            Basketcount.innerText = length;
+        }
+    } else {
+        console.error("Basketcount element not found.");
+    }
+}
 
+// Call calculationBasketCount to update basket count
+calculationBasketCount();
 function GettingDataFromApi() {
     let productsInThis = document.querySelector(".productsInThis");
     
@@ -139,11 +157,59 @@ function GettingDataFromApi() {
             </div>
                 `;
             }
-        })
-        .catch(error => {
+            function extractPriceFromText(text) {
+                let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
+                return priceMatch ? parseFloat(priceMatch[1]) : null;
+            }
+            let addToBasketButtons = document.querySelectorAll(".addingIcon .IconAdd");
+            addToBasketButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    let productId = this.closest(".extraCar").getAttribute("data-id");
+                    let productNameElement = this.closest('.extraCar').querySelector(".titleOfTheDeisgn").innerText.trim();
+                    let productPrice = extractPriceFromText(this.closest('.extraCar').querySelector(".theActualPrice").innerText).toFixed(2);
+                    let productImg = this.closest('.extraCar').querySelector("img").src;
+
+                    let productsArr = [];
+                    if (localStorage.getItem("basket1") === null) {
+                        localStorage.setItem("basket1", JSON.stringify([]));
+                    } else {
+                        productsArr = JSON.parse(localStorage.getItem("basket1"));
+                    }
+                    let existProduct = productsArr.find(p => p.id == productId);
+                    if (existProduct) {
+                        existProduct.count++;
+                    } else {
+                        let product = {
+                            price: productPrice,
+                            id: productId,
+                            name: productNameElement,
+                            img: productImg,
+                            count: 1
+                        };
+                        productsArr.push(product);
+                    }
+                    localStorage.setItem("basket1", JSON.stringify(productsArr));
+                    calculationBasketCount();
+                });
+                calculationBasketCount();
+            });
+            function calculationBasketCount() {
+                let Basketcount = document.querySelector(".valueindicator .valueBasket");
+                if (Basketcount) {
+                    let basket = localStorage.getItem("basket1");
+                    let length;
+                    if (basket) {
+                        length = JSON.parse(basket).length;
+                        Basketcount.innerText = length;
+                    }
+                } else {
+                    console.error("Basketcount element not found.");
+                }
+            }
+        }).catch(error => {
             console.error('Error fetching data:', error);
         });
-}
+    }
 
 GettingDataFromApi();
 
@@ -323,10 +389,64 @@ function getDataFromApiSecond(){
             </div>
                 `;
         })
-    })  
-    .catch(error => {
+        function extractPriceFromText(text) {
+            let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
+            return priceMatch ? parseFloat(priceMatch[1]) : null;
+        }
+        let addToBasketButtons = document.querySelectorAll(".addingIcon .IconAdd");
+        addToBasketButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                let productId = this.closest(".extraCar").getAttribute("data-id");
+                let productNameElement = this.closest('.extraCar').querySelector(".titleOfTheDeisgn").innerText.trim();
+                let productPrice = extractPriceFromText(this.closest('.extraCar').querySelector(".theActualPrice").innerText).toFixed(2);
+                let productImg = this.closest('.extraCar').querySelector("img").src;
+
+                let productsArr = [];
+                if (localStorage.getItem("basket1") === null) {
+                    localStorage.setItem("basket1", JSON.stringify([]));
+                } else {
+                    productsArr = JSON.parse(localStorage.getItem("basket1"));
+                }
+                let existProduct = productsArr.find(p => p.id == productId);
+                if (existProduct) {
+                    existProduct.count++;
+                } else {
+                    let product = {
+                        price: productPrice,
+                        id: productId,
+                        name: productNameElement,
+                        img: productImg,
+                        count: 1
+                    };
+                    productsArr.push(product);
+                }
+                localStorage.setItem("basket1", JSON.stringify(productsArr));
+                calculationBasketCount();
+            });
+            calculationBasketCount();
+        });
+        function calculationBasketCount() {
+            let Basketcount = document.querySelector(".valueindicator .valueBasket");
+            if (Basketcount) {
+                let basket = localStorage.getItem("basket1");
+                let length;
+                if (basket) {
+                    length = JSON.parse(basket).length;
+                    Basketcount.innerText = length;
+                }
+            } else {
+                console.error("Basketcount element not found.");
+            }
+        }
+    })  .catch(error => {
         console.error('Error fetching data:', error);
     });
 }
 
 getDataFromApiSecond();
+
+// Add event listeners to the dynamically created "Add to Basket" buttons
+
+
+
+
