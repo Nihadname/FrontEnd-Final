@@ -109,6 +109,7 @@
   border: 1px solid rgb(233, 69, 96);
   height: 40px;
   font-size: 14px;
+  width: 16%;
   border-radius: 5px;
 }
 
@@ -118,4 +119,40 @@
   width: 100%;
   width: 205px;
   height: 165px;
+}
+
+.comments {
+  display: none;
+}
+
+.stars {
+  font-size: 0; /* remove white space between inline-block elements */
+}
+
+.star {
+  display: inline-block;
+  font-size: 25px; /* adjust size as needed */
+  cursor: pointer;
+}
+
+.star.active {
+  color: yellow;
+}
+
+textarea {
+  display: block;
+  padding: 8px 12px;
+  min-height: 40px;
+  font-size: inherit;
+  color: rgb(43, 52, 69);
+  border-radius: 5px;
+  border: 1px solid rgb(218, 225, 231);
+  width: 100%;
+  outline: none;
+  overflow: auto;
+  font-family: inherit;
+}
+
+textarea:hover {
+  border-color: rgb(174, 180, 190);
 }/*# sourceMappingURL=singleProduct.css.map */

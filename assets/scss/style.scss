@@ -923,3 +923,25 @@ footer{
     font-size: 14px;
     border-radius: 5px;
 }
+.anotherviewcart{
+  display: flex;
+  width: unset;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  line-height: 1;
+  padding: 10px 199px;
+  color: rgb(233, 69, 96);
+  border: 1px solid rgb(233, 69, 96);
+  height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  a{
+    color: rgb(233, 69, 96);
+    ;
+  }
+}
