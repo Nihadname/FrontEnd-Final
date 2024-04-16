@@ -144,6 +144,7 @@ function extractPriceFromText(text) {
 let allAddingBasketButtons = document.querySelectorAll(".addingIcon");
 allAddingBasketButtons.forEach(button => {
     button.addEventListener("click", function (event) {
+
         let productsArr = [];
         let productId = this.closest(".mycard").getAttribute("data-id");
         if (localStorage.getItem("basket") === null) {
@@ -167,6 +168,7 @@ allAddingBasketButtons.forEach(button => {
         }
         localStorage.setItem("basket", JSON.stringify(productsArr));
         calculationBasketCount();
+        location.reload();
     });
     calculationBasketCount();
 });

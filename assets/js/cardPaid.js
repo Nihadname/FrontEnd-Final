@@ -12,7 +12,7 @@ $(document).ready(function () {
 })
 $('.fa-bag-shopping').click(function () {
     $('#basketModal').modal('show');
-    
+
 });
 // Get the basket items from local storage
 
@@ -61,7 +61,7 @@ ArrayOfLocal.forEach((element, index) => {
 </div>
     `;
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         // Function to update the count in both HTML and local storage
         function updateCount(index, count) {
             // Update the count in the corresponding basket item
@@ -79,43 +79,51 @@ ArrayOfLocal.forEach((element, index) => {
         function updateBasket(basket) {
             localStorage.setItem("basket", JSON.stringify(basket));
         }
-    
+
         // Loop through each basket item
         ArrayOfLocal.forEach((element, index) => {
             // Select the increase button for the current basket item
             let increase = document.querySelectorAll(".increase")[index];
             let decrease = document.querySelectorAll(".decrease")[index];
             let BasketValueHeres = document.querySelectorAll(".BasketValueHeres")[index];
-            let basketValue=document.querySelectorAll(".basketValue")[index];
-            let basketTable=document.querySelectorAll(".basketTable")[index]
-    
-            // Add click event listener to the increase button
-        // Add click event listener to the increase button
-increase.addEventListener("click", function(ev){
-    ev.preventDefault();
-    // Increase the count
-    element.count = element.count + 1;
-    basketValue.textContent = element.count;
-    // Call the function to update count in HTML and local storage
-    updateCount(index, element.count);
-});
+            let basketValue = document.querySelectorAll(".basketValue")[index];
+            let removeItButton = document.querySelectorAll(".RemoveIt")[index];
+            let basketTable = document.querySelectorAll(".basketTable")[index];
 
-// Add click event listener to the decrease button
-decrease.addEventListener("click", function(ev){
-    ev.preventDefault();
-    // Decrease the count if it's greater than 1
-    if (element.count > 1) {
-        element.count = element.count - 1;
-        basketValue.textContent = element.count;
-        // Call the function to update count in HTML and local storage
-        updateCount(index, element.count);
-    } else if (element.count === 1) {
-        basketTable.remove();
-        removeItem(element.id);
-    }
-});
+
+            // Add click event listener to the increase button
+            // Add click event listener to the increase button
+            increase.addEventListener("click", function (ev) {
+                ev.preventDefault();
+                // Increase the count
+                element.count = element.count + 1;
+                basketValue.textContent = element.count;
+                // Call the function to update count in HTML and local storage
+                updateCount(index, element.count);
+            });
+
+            // Add click event listener to the decrease button
+            decrease.addEventListener("click", function (ev) {
+                ev.preventDefault();
+                // Decrease the count if it's greater than 1
+                if (element.count > 1) {
+                    element.count = element.count - 1;
+                    basketValue.textContent = element.count;
+                    // Call the function to update count in HTML and local storage
+                    updateCount(index, element.count);
+                } else if (element.count === 1) {
+                    basketTable.remove();
+                    removeItem(element.id);
+                }
+            });
+            removeItButton.addEventListener("click", function (ev) {
+                ev.preventDefault();
+                // Remove the item from the basket
+                basketTable.remove();
+                removeItem(element.id);
+            });
 
         });
     });
-    
+
 });
