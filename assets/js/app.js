@@ -196,6 +196,7 @@ function getBasket() {
 }
 getBasket().forEach(products => {
     let tr = document.createElement("tr");
+    tr.style.boxShadow=" rgba(3, 0, 71, 0.09) 0px 1px 3px;";
     let tdImage = document.createElement("td");
     let img = document.createElement("img");
     img.setAttribute("src", products.img);
@@ -208,7 +209,10 @@ getBasket().forEach(products => {
     tdPrice.innerText = (products.count * products.price) + "$";
     let tdCount = document.createElement("td");
     let TdRemove = document.createElement("td");
-    TdRemove.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+    const deleting=`<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="injected-svg" data-src="/assets/images/icons/close.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+    <path d="M6.2253 4.81096C5.83477 4.42044 5.20161 4.42044 4.81108 4.81096C4.42056 5.20148 4.42056 5.83465 4.81108 6.22517L10.5858 11.9999L4.81114 17.7746C4.42062 18.1651 4.42062 18.7983 4.81114 19.1888C5.20167 19.5793 5.83483 19.5793 6.22535 19.1888L12 13.4141L17.7747 19.1888C18.1652 19.5793 18.7984 19.5793 19.1889 19.1888C19.5794 18.7983 19.5794 18.1651 19.1889 17.7746L13.4142 11.9999L19.189 6.22517C19.5795 5.83465 19.5795 5.20148 19.189 4.81096C18.7985 4.42044 18.1653 4.42044 17.7748 4.81096L12 10.5857L6.2253 4.81096Z" fill="black"></path>
+    </svg>`
+    TdRemove.innerHTML = deleting;
     let countWrapper = document.createElement("div");
     countWrapper.style.display = "flex";
     countWrapper.style.alignItems = "center";
@@ -216,10 +220,17 @@ getBasket().forEach(products => {
     // Create the decrease and increase spans
     let decreaseSpan = document.createElement("span");
     decreaseSpan.style.margin = "12px"
-    decreaseSpan.innerHTML = '<i class="fa-solid fa-minus"></i>';
+    const svgCode = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" class="injected-svg" data-src="/assets/images/icons/minus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75001 9C2.75001 8.44772 3.19772 8 3.75001 8H14.25C14.8023 8 15.25 8.44772 15.25 9C15.25 9.55228 14.8023 10 14.25 10H3.75001C3.19772 10 2.75001 9.55228 2.75001 9Z" fill="#E94560"></path>
+    </svg>`;
+    decreaseSpan.innerHTML = svgCode;
     let increaseSpan = document.createElement("span");
     increaseSpan.style.margin = "12px"
-    increaseSpan.innerHTML = '<i class="fa-solid fa-plus"></i>';
+    increaseSpan.innerHTML = '<div><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" class="injected-svg" data-src="/assets/images/icons/plus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">' +
+    '<path fill="#FF0000" fill-rule="evenodd" clip-rule="evenodd" d="M9 2.74999C9.55228 2.74999 10 3.19771 10 3.74999V14.25C10 14.8023 9.55228 15.25 9 15.25C8.44772 15.25 8 14.8023 8 14.25V3.74999C8 3.19771 8.44772 2.74999 9 2.74999Z"></path>' +
+    '<path fill="#FF0000" fill-rule="evenodd" clip-rule="evenodd" d="M2.75 9C2.75 8.44772 3.19772 8 3.75 8H14.25C14.8023 8 15.25 8.44772 15.25 9C15.25 9.55228 14.8023 10 14.25 10H3.75C3.19772 10 2.75 9.55228 2.75 9Z"></path>' +
+    '</svg></div>';;
 
     // Span to display the count, you may adjust this part based on your actual code logic
     let countDisplay = document.createElement("span");
@@ -273,8 +284,6 @@ getBasket().forEach(products => {
         let basket = getBasket();
         basket = basket.filter(product => product.id !== productId);
         updateBasket(basket);
-        updateAlertVisibility(); // Check and update alert visibility
-
     }
 
 

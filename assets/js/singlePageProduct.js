@@ -302,7 +302,7 @@ font-size: 16px;">*</h5>
         </div>
         <textarea id="textArea" rows="8" name="comment" class="mb-2 "></textarea>
         <button class="buttonHere" style="background-color: rgb(218, 225, 231);
-        ;">submit</button>
+        width: 16%;">submit</button>
     </div>
         `)
     })
