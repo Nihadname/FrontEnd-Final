@@ -294,7 +294,7 @@ getBasket().forEach(products => {
     table.classList.remove("d-none");
 
     CalculateBaketTotalPrice();
-
+``
     table.lastElementChild.append(tr);
     TdRemove.onclick = function () {
         let basket = getBasket();
