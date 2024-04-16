@@ -53,3 +53,62 @@
 
     border-bottom: 3px solid rgb(218, 225, 231);
 }
+.wholeDiv .describe{
+    margin-right: 25px;
+    padding: 4px 10px;
+    color: rgb(233, 69, 96);
+    border-top-color: rgb(233, 69, 96);
+    border-right-color: rgb(233, 69, 96);
+    border-left-color: rgb(233, 69, 96);
+    border-bottom: 2px solid;
+    font-weight: 600;
+    font-size: 16px;
+}
+.wholeDiv .review{
+    font-weight: 600;
+    font-size: 16px;
+    padding: 4px 10px;
+    color: rgb(125, 135, 156);
+}
+.spec{
+    font-size: 20px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.boxPrice{
+    display: flex;
+    margin: 0.5rem;
+    min-width: 300px;
+    min-height: 200px;
+    border-radius: 8px;
+    border: 1px solid rgb(218, 225, 231);
+    align-items: center;
+    flex-direction: column;
+    justify-content: center
+}
+.newOneButtonHere{
+    display: flex;
+    width: unset;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    background: transparent;
+    line-height: 1;
+    padding: 10px 16px;
+    color: rgb(233, 69, 96);
+    border: 1px solid rgb(233, 69, 96);
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.smallCardHere{
+    box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    width: 205px;
+    height: 165px;
+}

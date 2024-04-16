@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $(".iconBar").click(function () {
-        $(".dropDownOFBar").toggle();
+    $(".UpDown").click(function () {
+        $(".content2").toggle();
     })
 });
