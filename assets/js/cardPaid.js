@@ -78,6 +78,8 @@ ArrayOfLocal.forEach((element, index) => {
         }
         function updateBasket(basket) {
             localStorage.setItem("basket", JSON.stringify(basket));
+            CalculateBaketTotalPrice()
+
         }
 
         // Loop through each basket item
@@ -98,6 +100,8 @@ ArrayOfLocal.forEach((element, index) => {
                 // Increase the count
                 element.count = element.count + 1;
                 basketValue.textContent = element.count;
+                CalculateBaketTotalPrice()
+
                 // Call the function to update count in HTML and local storage
                 updateCount(index, element.count);
             });
@@ -109,10 +113,14 @@ ArrayOfLocal.forEach((element, index) => {
                 if (element.count > 1) {
                     element.count = element.count - 1;
                     basketValue.textContent = element.count;
+                    CalculateBaketTotalPrice()
+
                     // Call the function to update count in HTML and local storage
                     updateCount(index, element.count);
                 } else if (element.count === 1) {
                     basketTable.remove();
+                    CalculateBaketTotalPrice()
+
                     removeItem(element.id);
                 }
             });
@@ -122,6 +130,23 @@ ArrayOfLocal.forEach((element, index) => {
                 basketTable.remove();
                 removeItem(element.id);
             });
+            function CalculateBaketTotalPrice() {
+                let totalPriceBasket = 0;
+            
+                // Loop through each item in the basket
+                ArrayOfLocal.forEach(element => {
+                    totalPriceBasket += element.count * element.price;
+                });
+            
+                let totalPriceElement = document.querySelector(".TotalPrice");
+                            if (totalPriceElement) {
+                    totalPriceElement.innerText =  totalPriceBasket.toFixed(2);
+                } else {
+                    console.error("Total price element not found.");
+                }
+            }
+            
+            CalculateBaketTotalPrice()
 
         });
     });
