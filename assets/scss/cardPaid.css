@@ -81,4 +81,117 @@
   outline: none;
   overflow: auto;
   font-family: inherit;
+}
+
+.Voucher {
+  padding: 8px 12px;
+  height: 40px;
+  font-size: inherit;
+  color: rgb(43, 52, 69);
+  border-radius: 5px;
+  border: 1px solid rgb(218, 225, 231);
+  width: 100%;
+  outline: none;
+}
+
+.Apply {
+  background-color: rgb(233, 69, 96);
+  border-color: rgb(233, 69, 96);
+  color: rgb(255, 255, 255);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  transition: all 150ms ease-in-out 0s;
+  line-height: 1;
+  padding: 10px 16px;
+  color: rgb(233, 69, 96);
+  border: 1px solid rgb(233, 69, 96);
+  height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 30px;
+}
+
+.Apply:hover {
+  background-color: rgb(233, 69, 96);
+  color: #fff;
+}
+
+.content4Extra {
+  bottom: calc(100% - 815px) !important;
+  display: none;
+}
+
+.dropdown-menu.border-1 {
+  border: 1px solid #000 !important; /* Adjust color and size as needed */
+}
+
+.Zip {
+  padding: 8px 12px;
+  height: 40px;
+  font-size: inherit;
+  color: rgb(43, 52, 69);
+  border-radius: 5px;
+  border: 1px solid rgb(218, 225, 231);
+  width: 100%;
+  outline: none;
+  margin-top: 12px;
+  font-family: inherit;
+}
+
+.ZipFor {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  transition: all 150ms ease-in-out 0s;
+  line-height: 1;
+  padding: 10px 16px;
+  color: rgb(233, 69, 96);
+  border: 1px solid rgb(233, 69, 96);
+  height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ZipFor:hover {
+  background: rgb(233, 69, 96);
+  color: #fff;
+}
+
+.ZipFor2 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  transition: all 150ms ease-in-out 0s;
+  line-height: 1;
+  padding: 10px 16px;
+  color: white;
+  background-color: rgb(233, 69, 96);
+  border: 1px solid rgb(233, 69, 96);
+  height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=cardPaid.css.map */

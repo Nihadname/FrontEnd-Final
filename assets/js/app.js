@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    $(".SignUp").click(function (event) {
+        event.preventDefault(); // Prevent the default action of the link
+        $("#register-modal").modal('show');
+        $('#signup-modal').modal('hide'); // Close the signup-modal
+
+    });
     $(".DropDownIcon").click(function () {
         if ($(this).hasClass('USD')) {
             $(".contentUsd").toggle();
@@ -136,11 +142,22 @@ margin-right: auto;">View All  Brands</span>
         $('#basketModal').modal('show');
     });
 });
+
 function extractPriceFromText(text) {
     let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
     return priceMatch ? parseFloat(priceMatch[1]) : null;
 }
+function CalculateBaketTotalPrice() {
+    let totalPrice = document.querySelector("#totalPrice");
+    let totalPriceBasket = 0;
+    let basket = getBasket();
+    basket.forEach(products => {
+        totalPriceBasket += products.count * products.price;
+    })
+    totalPrice.innerText =totalPriceBasket.toFixed(2);
 
+}
+function AllBasket(){
 let allAddingBasketButtons = document.querySelectorAll(".addingIcon");
 allAddingBasketButtons.forEach(button => {
     button.addEventListener("click", function (event) {
@@ -168,10 +185,15 @@ allAddingBasketButtons.forEach(button => {
         }
         localStorage.setItem("basket", JSON.stringify(productsArr));
         calculationBasketCount();
-        location.reload();
+       // window.location.reload();
+
     });
     calculationBasketCount();
+
 });
+}
+
+AllBasket()
 function calculationBasketCount() {
     let Basketcount = document.querySelector(".valueindicator .valueBasket");
     if (Basketcount) {
@@ -190,11 +212,7 @@ calculationBasketCount()
 
 function getBasket() {
     let basket = localStorage.getItem("basket");
-    let products = [];
-    if (basket) {
-        products = JSON.parse(basket);
-    }
-    return products;
+    return basket ? JSON.parse(basket) : [];
 }
 getBasket().forEach(products => {
     let tr = document.createElement("tr");

@@ -12,6 +12,7 @@ $(document).ready(function () {
 })
 $('.fa-bag-shopping').click(function () {
     $('#basketModal').modal('show');
+    $('.dropdown-toggle').dropdown();
 
 });
 // Get the basket items from local storage
@@ -63,92 +64,87 @@ ArrayOfLocal.forEach((element, index) => {
 
     document.addEventListener("DOMContentLoaded", function () {
         // Function to update the count in both HTML and local storage
-        function updateCount(index, count) {
-            // Update the count in the corresponding basket item
-            ArrayOfLocal[index].count = count;
-            // Update the count in the HTML
-            document.querySelectorAll(".BasketValueHeres")[index].textContent = count;
-            // Update the local storage
-            localStorage.setItem("basket", JSON.stringify(ArrayOfLocal));
-        }
-        function removeItem(productId) {
-            let basket = ArrayOfLocal;
-            basket = basket.filter(product => product.id !== productId);
-            updateBasket(basket);
-        }
-        function updateBasket(basket) {
-            localStorage.setItem("basket", JSON.stringify(basket));
-            CalculateBaketTotalPrice()
-
-        }
-
-        // Loop through each basket item
-        ArrayOfLocal.forEach((element, index) => {
-            // Select the increase button for the current basket item
+           ArrayOfLocal.forEach((element, index) => {
             let increase = document.querySelectorAll(".increase")[index];
             let decrease = document.querySelectorAll(".decrease")[index];
             let BasketValueHeres = document.querySelectorAll(".BasketValueHeres")[index];
             let basketValue = document.querySelectorAll(".basketValue")[index];
             let removeItButton = document.querySelectorAll(".RemoveIt")[index];
             let basketTable = document.querySelectorAll(".basketTable")[index];
-
-
-            // Add click event listener to the increase button
-            // Add click event listener to the increase button
+    
             increase.addEventListener("click", function (ev) {
-                ev.preventDefault();
-                // Increase the count
-                element.count = element.count + 1;
+          //      ev.preventDefault();
+                element.count++;
                 basketValue.textContent = element.count;
-                CalculateBaketTotalPrice()
-
-                // Call the function to update count in HTML and local storage
+                CalculateBaketTotalPrice();
                 updateCount(index, element.count);
             });
-
-            // Add click event listener to the decrease button
+    
             decrease.addEventListener("click", function (ev) {
-                ev.preventDefault();
-                // Decrease the count if it's greater than 1
+              //  ev.preventDefault();
                 if (element.count > 1) {
-                    element.count = element.count - 1;
+                    element.count--;
                     basketValue.textContent = element.count;
-                    CalculateBaketTotalPrice()
-
-                    // Call the function to update count in HTML and local storage
+                    CalculateBaketTotalPrice();
                     updateCount(index, element.count);
                 } else if (element.count === 1) {
                     basketTable.remove();
-                    CalculateBaketTotalPrice()
-
+                    CalculateBaketTotalPrice();
                     removeItem(element.id);
                 }
             });
+    
             removeItButton.addEventListener("click", function (ev) {
-                ev.preventDefault();
-                // Remove the item from the basket
+             //   ev.preventDefault();
                 basketTable.remove();
+                window.location.reload();
+                CalculateBaketTotalPrice();
                 removeItem(element.id);
             });
-            function CalculateBaketTotalPrice() {
-                let totalPriceBasket = 0;
-            
-                // Loop through each item in the basket
-                ArrayOfLocal.forEach(element => {
-                    totalPriceBasket += element.count * element.price;
-                });
-            
-                let totalPriceElement = document.querySelector(".TotalPrice");
-                            if (totalPriceElement) {
-                    totalPriceElement.innerText =  totalPriceBasket.toFixed(2);
-                } else {
-                    console.error("Total price element not found.");
-                }
-            }
-            
-            CalculateBaketTotalPrice()
-
+    
+            CalculateBaketTotalPrice();
         });
+        function updateCount(index, count) {
+            ArrayOfLocal[index].count = count;
+            document.querySelectorAll(".BasketValueHeres")[index].textContent = count;
+            localStorage.setItem("basket", JSON.stringify(ArrayOfLocal));
+            CalculateBaketTotalPrice();
+        }
+    
+        function removeItem(productId) {
+            let basket = ArrayOfLocal.filter(product => product.id !== productId);
+            updateBasket(basket);
+        }
+    
+        function updateBasket(basket) {
+            localStorage.setItem("basket", JSON.stringify(basket));
+            CalculateBaketTotalPrice()
+        }
+    
+        function CalculateBaketTotalPrice() {
+            let totalPrice = document.querySelector(".TotalPrice");
+            let totalPriceBasket = ArrayOfLocal.reduce((total, product) => total + (product.count * product.price), 0);
+            totalPrice.innerText = totalPriceBasket.toFixed(2);
+        }
+    
+        // Loop through each basket item
+     
     });
+    
 
 });
+let content4=document.querySelector(".dropdown-menu")
+
+fetch('https://api.first.org/data/v1/countries')
+    .then(res => res.json())
+    .then(data => {
+        const countries = data.data;
+        for (const countryCode in countries) {
+            if (countries.hasOwnProperty(countryCode)) {
+                const countryData = countries[countryCode];
+content4.innerHTML+=`
+<li><a class="dropdown-item" href="#">${countryData.country}</a></li>
+`
+            }
+        }
+    });
