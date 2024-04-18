@@ -1,14 +1,11 @@
 $(document).ready(function () {
     let users = [];
     let userId;
-    // Check if localStorage key "users" exists and contains valid data
     const storedUsers = localStorage.getItem("users");
     if (storedUsers !== null) {
         try {
-            // Attempt to parse storedUsers into an array
             users = JSON.parse(storedUsers);
         } catch (error) {
-            // If parsing fails, handle the error (e.g., log it or show a message)
             console.error("Error parsing stored users:", error);
         }
     } else {
@@ -17,7 +14,7 @@ $(document).ready(function () {
     let registerBtn = $(".registerBtn");
     registerBtn.on("click", function (event) {
         event.preventDefault();
-        event.stopPropagation(); // Stop event propagation
+        event.stopPropagation(); 
 
         const form = $("#register-Form");
         const FullName = form.find(".FullNameRegister");
@@ -42,8 +39,11 @@ $(document).ready(function () {
                 FullName: FullName.val(),
                 email: Email.val().toLowerCase(),
                 UserName: UserName.val().toLowerCase(),
-                password: password.val()
+                password: password.val(),
+                isLogin:false
             });
+            $("#signup-modal").modal('show');
+            $("#register-modal").modal('hide')
             localStorage.setItem("users", JSON.stringify(users));
         } else {
             alert("bele bir istifadeci movcuddur olmaz");
