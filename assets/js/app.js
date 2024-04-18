@@ -141,6 +141,7 @@ margin-right: auto;">View All  Brands</span>
     $('.fa-bag-shopping').click(function () {
         $('#basketModal').modal('show');
     });
+    
 });
 
 function extractPriceFromText(text) {

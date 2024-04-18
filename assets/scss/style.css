@@ -1048,4 +1048,9 @@ footer {
   font-size: 14px;
   border-radius: 5px;
   margin-bottom: 0.825rem;
+}
+
+.swal2-popup {
+  background-color: #f0f0f0; /* Change to your desired background color */
+  color: #333; /* Change to your desired text color */
 }/*# sourceMappingURL=style.css.map */
