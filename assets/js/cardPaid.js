@@ -48,11 +48,11 @@ ArrayOfLocal.forEach((element, index) => {
             color: rgb(233, 69, 96);
             font-weight: 600">${element.price}</div>
          <div class="buttons d-flex align-items-center gap-1 " style="">
-            <div class="svgValue decrease"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="black" class="injected-svg" data-src="/assets/images/icons/minus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+            <div class="svgValue decrease" onclick="decrease(this)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="black" class="injected-svg" data-src="/assets/images/icons/minus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75001 9C2.75001 8.44772 3.19772 8 3.75001 8H14.25C14.8023 8 15.25 8.44772 15.25 9C15.25 9.55228 14.8023 10 14.25 10H3.75001C3.19772 10 2.75001 9.55228 2.75001 9Z" fill="black"></path>
                 </svg></div>
                 <span class="basketValue">${element.count}</span>
-                <div class="svgValue increase"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" class="injected-svg" data-src="/assets/images/icons/plus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
+                <div class="svgValue increase" onclick="increase(this)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" class="injected-svg" data-src="/assets/images/icons/plus.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9 2.74999C9.55228 2.74999 10 3.19771 10 3.74999V14.25C10 14.8023 9.55228 15.25 9 15.25C8.44772 15.25 8 14.8023 8 14.25V3.74999C8 3.19771 8.44772 2.74999 9 2.74999Z" fill="#0F3460"></path>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2.75 9C2.75 8.44772 3.19772 8 3.75 8H14.25C14.8023 8 15.25 8.44772 15.25 9C15.25 9.55228 14.8023 10 14.25 10H3.75C3.19772 10 2.75 9.55228 2.75 9Z" fill="#0F3460"></path>
                     </svg></div>
@@ -64,34 +64,82 @@ ArrayOfLocal.forEach((element, index) => {
 </div>
     `;
 });
+function getBasket() {
+    let basket = localStorage.getItem("basket");
+    return basket ? JSON.parse(basket) : [];
+}
 
 function removeItem(RemoveButton) {
     let id = RemoveButton.getAttribute("data-id");
-    let basket = JSON.parse(localStorage.getItem("basket"));
+    let basket = getBasket();
     let updatedBasket = basket.filter(item => item.id !== id);
     localStorage.setItem("basket", JSON.stringify(updatedBasket));
-
-    // Find the closest basketTable element and remove it
     let basketItem = RemoveButton.closest(".basketTable");
     basketItem.remove();
+    CalculateBaketTotalPrice()
 }
+function increase(IncreaseButton){
+    let id = IncreaseButton.closest(".basketTable").querySelector(".RemoveIt").getAttribute("data-id");
+    console.log(id);
+    let basket=getBasket();
+    let existingItem=basket.find(item=>item.id===id);
+    if(existingItem){
+        existingItem.count++;
+        IncreaseButton.closest(".basketTable").querySelector(".basketValue").textContent = existingItem.count;
+            localStorage.setItem("basket", JSON.stringify(basket));
+            CalculateBaketTotalPrice()
+    }
+
+
+}
+function decrease(decreaseButton) {
+let id = decreaseButton.closest(".basketTable").querySelector(".RemoveIt").getAttribute("data-id");
+    console.log(id);
+    let basket =getBasket();
+    let existingItem = basket.find(item => item.id === id);
+    if (existingItem) {
+        existingItem.count--;
+        if (existingItem.count === 0) {
+            basket = basket.filter(item => item.id !== id);
+            localStorage.setItem("basket", JSON.stringify(basket));
+            CalculateBaketTotalPrice()
+
+            decreaseButton.closest(".basketTable").remove();
+        } else {
+            localStorage.setItem("basket", JSON.stringify(basket));
+            CalculateBaketTotalPrice()
+            decreaseButton.closest(".basketTable").querySelector(".basketValue").textContent = existingItem.count;
+        }
+    }
+}
+function CalculateBaketTotalPrice(){
+    let totalPrice = document.querySelector(".totalPrice");
+    let valueAllPrice=0;
+    let basket=getBasket();
+    basket.forEach(item=>{
+        valueAllPrice+=item.count*item.price;
+    })
+    totalPrice.innerText=valueAllPrice;
+}
+CalculateBaketTotalPrice()
+
 
 
 let content4 = document.querySelector(".dropdown-menu")
 
-fetch('https://api.first.org/data/v1/countries')
-    .then(res => res.json())
-    .then(data => {
-        const countries = data.data;
-        for (const countryCode in countries) {
-            if (countries.hasOwnProperty(countryCode)) {
-                const countryData = countries[countryCode];
-                content4.innerHTML += `
-<li><a class="dropdown-item" href="#">${countryData.country}</a></li>
-`
-            }
-        }
-    });
+// fetch('https://api.first.org/data/v1/countries')
+//     .then(res => res.json())
+//     .then(data => {
+//         const countries = data.data;
+//         for (const countryCode in countries) {
+//             if (countries.hasOwnProperty(countryCode)) {
+//                 const countryData = countries[countryCode];
+//                 content4.innerHTML += `
+// <li><a class="dropdown-item" href="#">${countryData.country}</a></li>
+// `
+//             }
+//         }
+//     });
 
 let cartDetails = document.querySelector(".cartDetails");
 console.log(cartDetails);
