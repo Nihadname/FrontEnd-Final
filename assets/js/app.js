@@ -334,6 +334,6 @@ function CalculateBaketTotalPrice() {
     basket.forEach(products => {
         totalPriceBasket += products.count * products.price;
     })
-    totalPrice.innerText = "Total price is " + totalPriceBasket.toFixed(2);
+    totalPrice.innerText = "Total price is " + totalPriceBasket.toFixed(1);
 
 }

@@ -1,0 +1,49 @@
+.wholeBarItself{
+    box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+    background-color: rgb(255, 255, 255);
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 1.5rem;
+    color: rgb(43, 52, 69);
+    border-radius: 8px;
+    width: 306px;
+}
+.hiddenClass{
+    display: none;
+}
+.wishItem{
+    padding: 21px 30px 1rem;
+}
+.firstlyPart span{
+    font-size: 13px;
+}
+.firstlyPart{
+    margin-bottom: -1.3rem;
+}
+.WishTitle{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 12px;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 700;
+}
+.addingToCardWish{
+    display: flex;
+    width: unset;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 11px 2rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: rgb(233, 69, 96);
+    background: rgb(255, 225, 230);
+    transition: all 150ms ease-in-out 0s;
+    line-height: 1;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+}
