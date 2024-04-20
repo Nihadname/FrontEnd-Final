@@ -1,0 +1,95 @@
+.hereTobePayment{
+    box-shadow: rgba(3, 0, 71, 0.09) 0px 1px 3px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 2rem;
+    padding: 1.5rem 1.75rem;
+}
+.CircleOne{
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    border: 2px solid rgb(125, 135, 156);
+    position: relative;
+}
+.submitPayment{
+    display: flex;
+    width: unset;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    background: transparent;
+    transition: all 150ms ease-in-out 0s;
+    line-height: 1;
+    padding: 10px 16px;
+    color: rgb(233, 69, 96);
+    border: 1px solid rgb(233, 69, 96);
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.submitPayment:hover{
+    background-color: rgb(233, 69, 96);
+    color: #fff;
+}
+.BackingTo{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: inherit;
+    background: transparent;
+    transition: all 150ms ease-in-out 0s;
+    line-height: 1;
+    padding: 10px 16px;
+    color: rgb(233, 69, 96);
+    border: 1px solid rgb(233, 69, 96);
+    height: 40px;
+    font-size: 14px;
+    
+    border-radius: 5px;
+    a{
+        color:rgb(233, 69, 96);
+    }
+}
+.BackingTo:hover{
+    background-color: rgb(233, 69, 96)!important;
+    color: #fff !important;
+}
+.BackingTo a:hover{
+    color: #fff;
+}
+.GoingToReview{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    padding: 11px 1.5rem;
+    font-weight: 600;
+    font-family: inherit;
+    background: rgb(233, 69, 96);
+    transition: all 150ms ease-in-out 0s;
+    line-height: 1;
+    border: none;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    a{   
+         color: rgb(255, 255, 255);
+
+
+    }
+}
