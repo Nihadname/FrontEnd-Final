@@ -399,10 +399,10 @@ function getDataFromApiSecond() {
             data.forEach(product => {
                 productsInThis.innerHTML += `
                 <div class="col-lg-4">
-                <div class="mycard mb-4 extraCar" data-id="${product.id}"">
+                <div class="mycard mb-4 extraCar"   data-id="${product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">$25<!-- -->% off</div>
-                        <img src="${product.image}" class="w-100 " style="width:312px; height:312px" alt="">
+                        <img src="${product.image}" class="w-100 " style="width:312px; height:312px" alt="" onclick="creatingPageSingle(this)" >
                     </div>
                     <div class="extraDesign">
                         <div class="writings">
@@ -516,7 +516,9 @@ function getDataFromApiSecond() {
                 </div>
             </div>
                 `;
+
             })
+        
             function extractPriceFromText(text) {
                 let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
                 return priceMatch ? parseFloat(priceMatch[1]) : null;
@@ -566,9 +568,15 @@ function getDataFromApiSecond() {
                     console.error("Basketcount element not found.");
                 }
             }
-        }).catch(error => {
+        })
+        .catch(error => {
             console.error('Error fetching data:', error);
         });
+       
+}
+function creatingPageSingle(product){
+let id=product.querySelector(".mycard").getAttribute("data-id");
+console.log(id);
 }
 
 getDataFromApiSecond();

@@ -86,6 +86,8 @@ function increase(IncreaseButton){
     if(existingItem){
         existingItem.count++;
         IncreaseButton.closest(".basketTable").querySelector(".basketValue").textContent = existingItem.count;
+        let BasketValueHeres=document.querySelector(".BasketValueHeres");
+        BasketValueHeres.textContent=existingItem.count;
             localStorage.setItem("basket", JSON.stringify(basket));
             CalculateBaketTotalPrice()
     }
@@ -108,6 +110,8 @@ let id = decreaseButton.closest(".basketTable").querySelector(".RemoveIt").getAt
             localStorage.setItem("basket", JSON.stringify(basket));
             CalculateBaketTotalPrice()
             decreaseButton.closest(".basketTable").querySelector(".basketValue").textContent = existingItem.count;
+            let BasketValueHeres=document.querySelector(".BasketValueHeres");
+            BasketValueHeres.textContent=existingItem.count;
         }
     }
 }
