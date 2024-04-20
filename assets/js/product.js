@@ -36,11 +36,12 @@ function GettingDataFromApi() {
     fetch('https://dummyjson.com/products')
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             for (let index = 0; index < 100 && index < data.products.length; index++) {
                 const product = data.products[index];
                 productsInThis.innerHTML += `
                 <div class="col-lg-4">
-                <div class="mycard mb-4 extraCar" onclick="creatingProductSingle(this)" data-id="${product.id}"">
+                <div class="mycard mb-4 extraCar" data-id="${product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">${product.discountPercentage}<!-- -->% off</div>
                         <img src="${product.images[0]}" class="w-100 " style="width:312px; height:312px" alt="">
@@ -157,11 +158,7 @@ function GettingDataFromApi() {
                 </div>
             </div>
                 `;
-            }
-            function creatingProductSingle(product){
-                let id=product.getAttribute("data-id");
-                console.log(id);
-             }  
+            }  
             function extractPriceFromText(text) {
                 let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
                 return priceMatch ? parseFloat(priceMatch[1]) : null;
@@ -399,7 +396,7 @@ function getDataFromApiSecond() {
             data.forEach(product => {
                 productsInThis.innerHTML += `
                 <div class="col-lg-4">
-                <div class="mycard mb-4 extraCar"   data-id="${product.id}"">
+                <div class="mycard mb-4 extraCar"   data-id="${30+product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">$25<!-- -->% off</div>
                         <img src="${product.image}" class="w-100 " style="width:312px; height:312px" alt="" onclick="creatingPageSingle(this)" >
@@ -574,10 +571,37 @@ function getDataFromApiSecond() {
         });
        
 }
-function creatingPageSingle(product){
-let id=product.querySelector(".mycard").getAttribute("data-id");
-console.log(id);
+function creatingPageSingle(product) {
+    let id = product.closest(".mycard").getAttribute("data-id");
+    console.log(id);
+    let image = product.closest(".mycard").querySelector("img").src;
+    console.log(image);
+    let title = product.closest(".mycard").querySelector(".titleOfTheDeisgn").textContent;
+    console.log(title);
+    let price=product.closest(".mycard").querySelector(".theActualPrice").textContent;
+    console.log(price);
+    
+    let products = JSON.parse(localStorage.getItem("products") || "[]");
+
+    let existingProduct = products.find(item => item.id === id);
+    if (existingProduct) {
+        existingProduct.count++;
+    } else {
+        const newItem = {
+            id: id,
+            image: image,
+            title: title,
+            price:price,
+            count: 1
+        };
+        products.push(newItem);
+    }
+    
+    localStorage.setItem("products", JSON.stringify(products));
+
+    window.location.assign("./singleProduct.html")
 }
+
 
 getDataFromApiSecond();
 
