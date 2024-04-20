@@ -40,7 +40,7 @@ function GettingDataFromApi() {
             for (let index = 0; index < 100 && index < data.products.length; index++) {
                 const product = data.products[index];
                 productsInThis.innerHTML += `
-                <div class="col-lg-4">
+                <div class="col-lg-4 inputDestoyer">
                 <div class="mycard mb-4 extraCar" data-id="${product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">${product.discountPercentage}<!-- -->% off</div>
@@ -338,20 +338,20 @@ function GettingDataFromApi() {
 
 GettingDataFromApi();
 
-let input = document.querySelector(".searchInput")
+let input = document.querySelector(".searchInput");
 input.addEventListener("keyup", function () {
     let value = this.value.toLowerCase();
-    let products = document.querySelectorAll('.mycard'); 
+    let products = document.querySelectorAll('.inputDestoyer'); 
     products.forEach(item => {
         let title = item.querySelector('.titleOfTheDeisgn').textContent.toLowerCase();
         if (title.includes(value)) {
-            //  let productsInThis = document.querySelector(".productsInThis");
             item.style.display = 'block';
         } else {
             item.style.display = 'none'; 
         }
-    })
-})
+    });
+});
+
 function HighToLow() {
     let clcikedOne = document.querySelector(".content4 .priceHigh span")
     clcikedOne.addEventListener("click", function(){
@@ -395,7 +395,7 @@ function getDataFromApiSecond() {
         .then(data => {
             data.forEach(product => {
                 productsInThis.innerHTML += `
-                <div class="col-lg-4">
+                <div class="col-lg-4 inputDestoyer">
                 <div class="mycard mb-4 extraCar"   data-id="${30+product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">$25<!-- -->% off</div>
