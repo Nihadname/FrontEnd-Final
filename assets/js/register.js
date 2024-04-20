@@ -32,7 +32,7 @@ $(document).ready(function () {
         const existUser = users.find(m => (m.UserName === UserName.val().toLowerCase()) || (m.email === Email.val().toLowerCase()));
 
         if (existUser === undefined) {
-            // Increment userId before using it
+          
             userId = users.length+1;
             users.push({
                 id: userId,

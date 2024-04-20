@@ -344,14 +344,14 @@ GettingDataFromApi();
 let input = document.querySelector(".searchInput")
 input.addEventListener("keyup", function () {
     let value = this.value.toLowerCase();
-    let products = document.querySelectorAll('.mycard'); // Select all product cards
+    let products = document.querySelectorAll('.mycard'); 
     products.forEach(item => {
         let title = item.querySelector('.titleOfTheDeisgn').textContent.toLowerCase();
         if (title.includes(value)) {
             //  let productsInThis = document.querySelector(".productsInThis");
             item.style.display = 'block';
         } else {
-            item.style.display = 'none'; // Hide the product card if it doesn't match the search
+            item.style.display = 'none'; 
         }
     })
 })
@@ -573,7 +573,7 @@ function getDataFromApiSecond() {
 
 getDataFromApiSecond();
 
-// Add event listeners to the dynamically created "Add to Basket" buttons
+
 
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains('mycard')) {
