@@ -337,3 +337,4 @@ function CalculateBaketTotalPrice() {
     totalPrice.innerText = "Total price is " + totalPriceBasket.toFixed(1);
 
 }
+ 

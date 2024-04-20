@@ -40,7 +40,7 @@ function GettingDataFromApi() {
                 const product = data.products[index];
                 productsInThis.innerHTML += `
                 <div class="col-lg-4">
-                <div class="mycard mb-4 extraCar" data-id="${product.id}"">
+                <div class="mycard mb-4 extraCar" onclick="creatingProductSingle(this)" data-id="${product.id}"">
                     <div class="imagePart">
                         <div class="iconsDesigned">${product.discountPercentage}<!-- -->% off</div>
                         <img src="${product.images[0]}" class="w-100 " style="width:312px; height:312px" alt="">
@@ -158,6 +158,10 @@ function GettingDataFromApi() {
             </div>
                 `;
             }
+            function creatingProductSingle(product){
+                let id=product.getAttribute("data-id");
+                console.log(id);
+             }  
             function extractPriceFromText(text) {
                 let priceMatch = text.match(/\$\s*(\d+(\.\d{1,2})?)/);
                 return priceMatch ? parseFloat(priceMatch[1]) : null;
@@ -327,6 +331,8 @@ function GettingDataFromApi() {
 
                 }
             });
+
+
 
         }).catch(error => {
             console.error('Error fetching data:', error);

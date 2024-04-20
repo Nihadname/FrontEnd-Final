@@ -102,8 +102,7 @@ let id = decreaseButton.closest(".basketTable").querySelector(".RemoveIt").getAt
         if (existingItem.count === 0) {
             basket = basket.filter(item => item.id !== id);
             localStorage.setItem("basket", JSON.stringify(basket));
-            CalculateBaketTotalPrice()
-
+            CalculateBaketTotalPrice();
             decreaseButton.closest(".basketTable").remove();
         } else {
             localStorage.setItem("basket", JSON.stringify(basket));

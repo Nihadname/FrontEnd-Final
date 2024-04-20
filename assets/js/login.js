@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     let users = [];
     if(localStorage.getItem("users") !== null){
@@ -7,14 +8,17 @@ $(document).ready(function(){
     }
 
     const loginBtn = $(".Login");
-    loginBtn.on("click", function(){
-        const form = $(".signup-form");
+    loginBtn.on("click", function(e){
+        e.preventDefault();
+        const form = $("#signup-form");
         const userNameOrEmail = form.find(".userNameOrEmail");
         const password = form.find(".password");
         const existUser = getAllUsers().find(m =>
             (m.username === userNameOrEmail.val() || m.email === userNameOrEmail.val()) &&
             m.password === password.val()
         );
+
+        console.log(existUser);
 
         if(existUser !== undefined){
             users.forEach(user => {
