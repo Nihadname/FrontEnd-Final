@@ -17,16 +17,12 @@ $('.fa-bag-shopping').click(function () {
 
 
 });
-// Get the basket items from local storage
 
-// Select the container where basket items will be displayed
 
 let ArrayOfLocal = JSON.parse(localStorage.getItem("basket"));
 let allBaskets = document.querySelector(".allBaskets");
 
-// Loop through each basket item
 ArrayOfLocal.forEach((element, index) => {
-    // Append HTML for the current basket item
     allBaskets.innerHTML += `
     <div class="basketTable d-flex "  >
     <img src="${element.img}" style="width: 140px; height: 140px;" alt="" ">

@@ -107,7 +107,7 @@
   });
   const divCircleButton = document.querySelector('.divCircle');
   divCircleButton.addEventListener('click', function() {
-    generateAndStoreRandomNumbers(10); 
+    generateAndStoreRandomNumbers(1); 
   });
 
   const paymentInput = document.querySelector('.submitPayment');
