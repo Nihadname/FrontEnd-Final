@@ -1,6 +1,4 @@
- function generateRandomNumber() {
-  return Math.floor(Math.random() * 1000); 
-}
+ 
 
   function generateUniqueId() {
     return '_' + Math.random().toString(36).substr(2, 9); 
@@ -23,12 +21,25 @@
     }
     return name;
   }
+  function generateRandomCardNumber() {
+    var randomPrefix = Math.random() < 0.5 ? "visa" : "mastercard";
+    var randomNumber;
+
+    if (randomPrefix === "visa") {
+        randomNumber = Math.floor(Math.random() * 90000000000000000) + 1000;
+        return "41" + randomNumber.toString();
+    } else {
+        randomNumber = Math.floor(Math.random() * 90000000000000000) + 100;
+        return "52" + randomNumber.toString();
+    }
+}
+
   function generateAndStoreRandomNumbers(count) {
     const randomNumberData = [];
 
     for (let i = 0; i < count; i++) {
       const id = generateUniqueId();
-      const number = generateRandomNumber();
+      const number =  generateRandomCardNumber();
       const date = getCurrentDateTime();
       const name = generateRandomName();
       const budget = generateRandomBudget();
@@ -95,7 +106,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const divCircleButton = document.querySelector('.divCircle');
     divCircleButton.addEventListener('click', function() {
-      generateAndStoreRandomNumbers(10); 
+      generateAndStoreRandomNumbers(1); 
     });
 
     const paymentInput = document.querySelector('.submitPayment');
