@@ -1,12 +1,15 @@
  function generateRandomNumber() {
-    return Math.floor(Math.random() * 1000); 
-  }
+  return Math.floor(Math.random() * 1000); 
+}
 
   function generateUniqueId() {
     return '_' + Math.random().toString(36).substr(2, 9); 
   }
   function generateRandomBudget() {
-    return Math.floor(Math.random() * 1000); 
+    var min = 500;
+    var max = 10000 + 1;
+      var randomNumber = Math.floor(Math.random() * (max - min)) + min;
+      return randomNumber;
   }
 
   function getCurrentDateTime() {
