@@ -85,7 +85,7 @@
     for (const randomNumber of randomNumbers) {
       if (parseInt(inputValue) >= randomNumber.budget) {
         alert('Success! Input value matches a card budget from Local Storage.');
-        return;
+        return true;
       }
     }
     alert('No match found.');
@@ -132,7 +132,7 @@
     if (document.querySelector('.NamehereAs').value !== '') {
       successFlags.nameCheck = true;
     }
-    if(document.querySelector('.secondBudgetChecker').textContent!==''){
+    if(document.querySelector('.secondBudgetChecker').textContent!==''&&checkInputValue4('.secondBudgetChecker') ){
         successFlags.budgetCheck=true;
     }
 
