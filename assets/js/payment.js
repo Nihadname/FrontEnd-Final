@@ -87,6 +87,7 @@
         alert('Success! Input value matches a card budget from Local Storage.');
         return true;
       }
+      return;
     }
     alert('No match found.');
   }
