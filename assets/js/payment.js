@@ -2,9 +2,11 @@
     return Math.floor(Math.random() * 1000); 
   }
 
-  // Function to generate a unique ID
   function generateUniqueId() {
     return '_' + Math.random().toString(36).substr(2, 9); 
+  }
+  function generateRandomBudget() {
+    return Math.floor(Math.random() * 1000); 
   }
 
   function getCurrentDateTime() {
@@ -26,12 +28,13 @@
       const number = generateRandomNumber();
       const date = getCurrentDateTime();
       const name = generateRandomName();
+      const budget = generateRandomBudget();
 
 
-      const data = { id, number, date,name };
+      const data = { id, number, date,name,budget};
       randomNumberData.push(data);
     }
-
+   
     localStorage.setItem('randomNumbers', JSON.stringify(randomNumberData));
     console.log('Random numbers generated and stored successfully.');
   }
@@ -42,7 +45,7 @@
 
     for (const randomNumber of randomNumbers) {
       if (parseInt(inputValue) === randomNumber.number) {
-        alert('Success! Input value matches a random number from Local Storage.');
+        alert('Success! Input value matches a card number');
         return;
       }
     }
@@ -54,7 +57,7 @@
 
     for (const randomNumber of randomNumbers) {
       if (inputValue === randomNumber.date) {
-        alert('Success! Input value matches a random number from Local Storage.');
+        alert('Success! Input value matches a card date');
         return;
       }
     }
@@ -66,7 +69,19 @@
 
     for (const randomNumber of randomNumbers) {
       if (inputValue === randomNumber.name) {
-        alert('Success! Input value matches a random number from Local Storage.');
+        alert('Success! Input value matches a card name from Local Storage.');
+        return;
+      }
+    }
+    alert('No match found.');
+  }
+  function checkInputValue4(inputClass) {
+    const inputValue = document.querySelector(inputClass).value;
+    const randomNumbers = JSON.parse(localStorage.getItem('randomNumbers')) || [];
+
+    for (const randomNumber of randomNumbers) {
+      if (parseInt(inputValue) >= randomNumber.budget) {
+        alert('Success! Input value matches a card budget from Local Storage.');
         return;
       }
     }
@@ -84,7 +99,8 @@
       checkInputValue('.payment1');
       checkInputValue2('.dateHere');
       checkInputValue3('.NamehereAs');
-    });
+      checkInputValue4('.secondBudgetChecker')   ;
+     });
   });
   const divCircleButton = document.querySelector('.divCircle');
   divCircleButton.addEventListener('click', function() {
@@ -96,13 +112,14 @@
     const successFlags = {
       valueCheck: false,
       dateCheck: false,
-      nameCheck: false
+      nameCheck: false,
+      budgetCheck:false
     };
 
     checkInputValue('.payment1');
     checkInputValue2('.dateHere');
     checkInputValue3('.NamehereAs');
-
+    checkInputValue4('.secondBudgetChecker') 
     if (document.querySelector('.payment1').value !== '') {
       successFlags.valueCheck = true;
     }
@@ -112,8 +129,11 @@
     if (document.querySelector('.NamehereAs').value !== '') {
       successFlags.nameCheck = true;
     }
+    if(document.querySelector('.secondBudgetChecker').textContent!==''){
+        successFlags.budgetCheck=true;
+    }
 
-    if (successFlags.valueCheck && successFlags.dateCheck && successFlags.nameCheck) {
+    if (successFlags.valueCheck && successFlags.dateCheck && successFlags.nameCheck &&successFlags.budgetCheck) {
 let allTobeValueAnd=document.querySelectorAll(".allTobeValueAnd");
 allTobeValueAnd.forEach(item=>{
     item.innerHTML="0";
