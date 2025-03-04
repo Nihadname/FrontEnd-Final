@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Answer Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 80%;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+</head>
+<body>
+
+    <h2>Check Student's Exam Answer</h2>
+
+    <label>Parent Question ID:</label>
+    <input type="number" id="parentQuestionId" placeholder="Enter Parent Question ID" required>
+
+    <label>Exam ID:</label>
+    <input type="number" id="examId" placeholder="Enter Exam ID" required>
+
+    <button onclick="fetchStudentAnswer()">Fetch Answer</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function fetchStudentAnswer() {
+            const parentQuestionId = document.getElementById("parentQuestionId").value;
+            const examId = document.getElementById("examId").value;
+            const resultDiv = document.getElementById("result");
+
+            if (!parentQuestionId || !examId) {
+                resultDiv.innerHTML = "<p class='incorrect'>Please enter both Parent Question ID and Exam ID.</p>";
+                return;
+            }
+
+            const url = `https://api-lms.celt.vip/api/v2/student-exam/parent-question-ids/${parentQuestionId}/${examId}`;
+
+            try {
+                const response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0Mzc5MzFjNC1lMDE1LTQzMTgtYTFjZC1lN2EwYmY5ZWFkZTkiLCJqdGkiOiI1NTJjNGFmY2I3MzEzODE1MzQ0YzI1ZTE3YmQ1MGFlZmRlYTA0ZGRhZDc3YjY3ODZhNWE5ZmZmNmU0YTExZjc5ZDJhZWJhYmY4MTI3MTY4MSIsImlhdCI6MTc0MTA4MDUzNy42NzYwNjEsIm5iZiI6MTc0MTA4MDUzNy42NzYwNjYsImV4cCI6MTc3MjYxNjUzNy42NTkxMjYsInN1YiI6IjExNTM5Iiwic2NvcGVzIjpbIioiXX0.dytRmqPZGHpLim0KCWSgpo3iFVOTRFADJH1TAXfgfKgW946HVCAffcw2saQo0J4ENL1J89nXQycSOshT1NbSYNorwSRfvQVCaVKFkKOGqwW83yhKTmOYwNREnzpRCdT-R6V5U-1ZxYNMwoVpXs4Rkk-dZD0WK6Yl9sK4T3l52tTxefHLLm1CpjOW1JxqkQ7ghnMmioKYetWdt4k7RFzEIsOX2ok3G8WS7gy64j0ISsdHMhzSX7mtA2UDpwp0eu_MviXdznsib-XBtk6LNbhNuBUkLEOua_RfvIYqg4oQpV__3nU7bM2csmj3E44FZJYPAziLT-mKcW5iXteVedKASu2dstYiqNqZbtXCrGXYTsZB3p7S96D0PnbDoX_73SoVRUkx7qDBQlfqRTqO_rYx8A8-Bs8S4Jn2YZ6dSGO1lF1MyP2IIuKv5E0q5_-3csrWXYMah97Q_gA3KXqsR8Zl5afcbmRN-uDLIPuj90qrvoy_FOvHgwIGStAZc3NInlezoFUNK8hFd5v3vDsmXyaHY1c0Ja7kfHG8KhsciTIVFyFLNrUsDoT5eQOdHCgMA-PtYk77s9XIIy_77poqXJO8cwca11vQPL2c0VwPURIJHwbYhwCbh3_EAE8O25qvBdLjFnq1HWuGwM9934Bg7gtsIdQVgHxRxRyVpEsEJFVW29A",  // Replace if needed
+                        "Accept": "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                const givenAnswer = data.given_answer || {};
+                const studentAnswer = givenAnswer.title || "N/A";  // e.g., "B"
+                const answerUrl = givenAnswer.answer_full_url || "N/A";
+                const correctAnswerUrl = givenAnswer.correct_full_url || "N/A";
+
+                let resultMessage = `<p>Student's Answer: <strong>${studentAnswer}</strong></p>`;
+                resultMessage += `<p>Student's Answer URL: <a href="${answerUrl}" target="_blank">View</a></p>`;
+                resultMessage += `<p>Correct Answer URL: <a href="${correctAnswerUrl}" target="_blank">View</a></p>`;
+
+                if (answerUrl === correctAnswerUrl) {
+                    resultMessage += `<p class="correct">✅ The student answered correctly!</p>`;
+                } else {
+                    resultMessage += `<p class="incorrect">❌ The student's answer is incorrect.</p>`;
+                }
+
+                resultDiv.innerHTML = resultMessage;
+
+            } catch (error) {
+                resultDiv.innerHTML = `<p class='incorrect'>Error fetching data: ${error.message}</p>`;
+            }
+        }
+    </script>
+    <script src="check.js"></script>
+
+</body>
+</html>

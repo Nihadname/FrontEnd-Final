@@ -58,11 +58,12 @@
     const randomNumbers = JSON.parse(localStorage.getItem('randomNumbers')) || [];
 
     for (const randomNumber of randomNumbers) {
-      if (parseInt(inputValue) === randomNumber.number) {
+      if (parseInt(inputValue) == randomNumber.number) {
         alert('Success! Input value matches a card number');
         return;
       }
     }
+    console.log(inputValue.value);
     alert('No match found.');
   }
   function checkInputValue2(inputClass) {
@@ -94,7 +95,7 @@
     const randomNumbers = JSON.parse(localStorage.getItem('randomNumbers')) || [];
 
     for (const randomNumber of randomNumbers) {
-      if (parseInt(inputValue) >= randomNumber.budget) {
+      if (parseInt(inputValue) <= randomNumber.budget) {
         alert('Success! Input value matches a card budget from Local Storage.');
         return true;
       }
@@ -106,7 +107,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const divCircleButton = document.querySelector('.divCircle');
     divCircleButton.addEventListener('click', function() {
-      generateAndStoreRandomNumbers(1); 
+      generateAndStoreRandomNumbers(10); 
     });
 
     const paymentInput = document.querySelector('.submitPayment');
